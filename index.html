@@ -3,304 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flare - 高质量医患交流APP</title>
+    <title>Flare 团队 - 远程医疗与健康咨询APP项目主页</title>
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
+            --primary-color: #0284c7;
+            --primary-dark: #0369a1;
             --bg-color: #f8fafc;
-            --text-main: #334155;
-            --text-light: #64748b;
             --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         body {
-            font-family: 'Segoe UI', "Microsoft YaHei", sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.7;
-            scroll-behavior: smooth;
+            line-height: 1.6;
         }
-        
-        /* 导航栏 */
-        nav {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .nav-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); letter-spacing: 1px; }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-main);
-            margin-left: 2rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover { color: var(--primary-color); }
-
-        /* 头部横幅 */
         header {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            background: linear-gradient(135deg, #0284c7, #0369a1);
             color: white;
-            padding: 8rem 2rem 5rem;
+            padding: 3rem 1rem;
             text-align: center;
-            margin-bottom: 2rem;
         }
-        header h1 { font-size: 3.5rem; margin-bottom: 1rem; letter-spacing: 2px; }
-        header p { font-size: 1.2rem; opacity: 0.9; max-width: 800px; margin: 0 auto; }
-
-        /* 容器与卡片 */
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem 4rem; }
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
         section {
             background: var(--card-bg);
-            border-radius: 16px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
-            scroll-margin-top: 80px;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
         }
         h2 {
-            color: var(--primary-color);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.2rem;
         }
-        h2::after {
-            content: '';
-            flex: 1;
-            height: 2px;
-            background: #e2e8f0;
-            margin-left: 10px;
+        h3 {
+            font-size: 1.2rem;
+            color: #334155;
+            margin: 1.2rem 0 0.6rem 0;
         }
-        h3 { color: var(--secondary-color); margin: 1.5rem 0 1rem; font-size: 1.2rem; }
-        p { margin-bottom: 1rem; color: var(--text-light); }
-        strong { color: var(--text-main); }
-
-        /* 团队卡片 */
-        .team-grid { display: flex; gap: 2rem; flex-wrap: wrap; }
-        .member {
-            flex: 1; min-width: 250px;
+        p, li {
+            margin-bottom: 0.8rem;
+            color: #334155;
+        }
+        ul {
+            padding-left: 1.5rem;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .team-card {
             background: #f1f5f9;
-            padding: 1.5rem;
-            border-radius: 12px;
+            padding: 1.2rem;
+            border-radius: 8px;
             border-left: 4px solid var(--primary-color);
         }
-        .member h3 { margin: 0 0 0.5rem 0; color: var(--text-main); }
-        .member p { margin: 0; font-size: 0.9rem; }
-
-        /* 列表样式 */
-        ul.custom-list { list-style: none; padding-left: 0; }
-        ul.custom-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.8rem;
-            color: var(--text-light);
+        .team-card h4 {
+            color: var(--primary-dark);
+            margin-bottom: 0.3rem;
         }
-        ul.custom-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-weight: bold;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
         }
-
-        /* 访谈洞察框 */
-        .insight-box {
-            background: #fffbeb;
-            border-left: 4px solid #f59e0b;
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 0.75rem;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: #1e293b;
+        }
+        .interview-box {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             padding: 1.5rem;
-            border-radius: 0 8px 8px 0;
-            margin: 1.5rem 0;
+            margin-bottom: 1.5rem;
         }
-        .insight-box p { margin: 0; color: #92400e; font-size: 0.95rem; }
-
-        /* 数据进度条 */
-        .data-item { margin-bottom: 1.5rem; }
-        .data-label {
-            display: flex; justify-content: space-between;
-            font-weight: bold; font-size: 0.95rem; margin-bottom: 8px;
+        .interview-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
         }
-        .progress-bar {
-            background-color: #e2e8f0; border-radius: 999px;
-            height: 12px; overflow: hidden;
+        .dialogue {
+            margin-bottom: 0.6rem;
         }
-        .progress-fill {
-            background: linear-gradient(90deg, #3b82f6, #2563eb);
-            height: 100%; border-radius: 999px;
+        .dialogue strong {
+            color: #0f172a;
         }
-
-        /* 表格样式 */
-        table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.95rem; }
-        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #e2e8f0; }
-        th { background-color: #f8fafc; color: var(--text-main); font-weight: 600; }
-        tr:hover { background-color: #f1f5f9; }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            header h1 { font-size: 2.5rem; }
-            section { padding: 2rem; }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- 顶部导航 -->
-    <nav>
-        <div class="nav-content">
-            <div class="logo">Flare</div>
-            <div class="nav-links">
-                <a href="#team">团队介绍</a>
-                <a href="#proposal">项目方案</a>
-                <a href="#interview">访谈洞察</a>
-                <a href="#data">数据收集</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- 头部 -->
     <header>
-        <h1>Flare 医患交流APP</h1>
-        <p>针对远程医疗与健康咨询场景，通过“免费日常医护 + 付费专家咨询”的分层模式，缓解线下就医压力，打造高质量、无障碍的医患交流体验。</p>
+        <h1>Flare 团队项目主页</h1>
+        <p>人机交互实验：远程医疗与健康咨询APP设计与数据收集</p>
     </header>
 
     <div class="container">
-        
-        <!-- 1. 团队介绍 -->
+
+        <!-- 一、 团队介绍 -->
         <section id="team">
-            <h2>👥 团队介绍</h2>
-            <p>我们是一支关注人机交互与医疗痛点的团队，致力于用产品设计解决真实世界的就医难题。</p>
+            <h2>一、 团队介绍</h2>
+            <p>我们是 <strong>Flare</strong> 团队，致力于通过人机交互与软件设计优化提升医疗服务的普惠性与数字化体验。</p>
             <div class="team-grid">
-                <div class="member">
-                    <h3>杨小英</h3>
+                <div class="team-card">
+                    <h4>杨小英</h4>
                     <p>学号：202300130279</p>
-                    <p style="margin-top: 0.5rem; color: var(--primary-color);">负责内容：网页制作、问卷数据分析、访谈记录</p>
+                    <p>分工：访谈组织与记录、网页开发与维护、内容审核</p>
                 </div>
-                <div class="member">
-                    <h3>王榕祺</h3>
+                <div class="team-card">
+                    <h4>王榕祺</h4>
                     <p>学号：202300130263</p>
-                    <p style="margin-top: 0.5rem; color: var(--primary-color);">负责内容：项目描述撰写、需求调研、数据统计与审核</p>
+                    <p>分工：问卷发放与数据统计、项目提案撰写、校对审核</p>
                 </div>
             </div>
         </section>
 
-        <!-- 2. 项目方案 (项目提案) -->
+        <!-- 二、 项目提案 -->
         <section id="proposal">
-            <h2>💡 项目方案</h2>
-            <p><strong>项目背景与痛点：</strong> 线下就医面临着漫长排队、跨院检查报告分散难以管理、以及特殊群体（如听障人士、高龄老人）沟通困难等问题。现有的线上问诊平台往往收费不透明，且缺乏针对复杂病情的视觉诊断支持。</p>
+            <h2>二、 项目提案</h2>
+            <p><strong>项目名称：</strong>高质量医患交流APP</p>
+            <p><strong>项目背景与描述：</strong></p>
+            <p>针对远程医疗与健康咨询场景，本团队设计了一款高质量医患交流APP。本项目旨在通过<strong>“免费（日常医护）+ 付费（专家咨询）”</strong>的分层服务模式缓解线下就医压力，解决线下漫长排队问题；同时提供检查报告管理模块，便于收集分散在不同平台的检查报告，建立个人完整电子健康档案；另外还提供高质量视频交流及面向听障人士的<strong>“实时字幕”</strong>无障碍功能，提升就医效率与普惠性。</p>
             
-            <h3>核心解决方案与功能：</h3>
-            <ul class="custom-list">
-                <li><strong>分层服务模式：</strong> 提供“免费（日常医护）+ 付费（专家咨询）”。日常小病通过免费真人医护快速解答；疑难杂症可付费直连三甲医院专家，解决排队挂号难题。</li>
-                <li><strong>跨平台电子健康档案：</strong> 汇集分散在不同医院、公众号和小程序中的检查报告。自动提取指标生成趋势图，同时保留原图供医生查阅，避免重复检查。</li>
-                <li><strong>高质量无障碍视频问诊：</strong> 支持高清视频看诊（针对皮肤病、外伤等），并首创面向听障/高龄人群的“实时字幕（语音转文字）”功能，支持字体放大、画笔标注病灶、以及问诊记录回放。</li>
-                <li><strong>智能健康管家：</strong> 提供用药提醒、复诊预约提醒、异常指标预警，全方位管理慢病与日常健康。</li>
+            <h3>核心功能模块：</h3>
+            <ul>
+                <li><strong>分层医疗咨询：</strong>设立免费日常医护咨询（应对轻症与小毛病）与付费专家门诊（针对疑难杂症与专家复诊），降低患者问诊门槛与经济负担。</li>
+                <li><strong>电子健康档案管理：</strong>支持拍照识别、跨平台同步，自动汇总不同医院的血常规、CT、B超等检查报告，生成健康趋势对比图。</li>
+                <li><strong>高质量视频问诊与无障碍实时字幕：</strong>提供流畅的视频看诊通道，内置语音转文字实时字幕、字体放大及问诊回放功能，关怀听障人士与老年群体。</li>
+                <li><strong>智能提醒服务：</strong>提供用药提醒、复诊预约提醒以及异常指标预警，形成闭环慢病管理。</li>
             </ul>
         </section>
 
-        <!-- 3. 访谈洞察 (数据收集计划 - 访谈) -->
-        <section id="interview">
-            <h2>🎙️ 用户访谈洞察</h2>
-            <p>我们针对4位典型潜在用户（包括互联网职员、需代管父母健康的中年人、大学生、慢病老年人）进行了深度访谈，挖掘了不同人群的真实痛点：</p>
-            
-            <div class="insight-box">
-                <p><strong>痛点一：时间成本与信任危机并存。</strong> 林先生（28岁）提到：“线下排队检查一上午就没了，之前在别家医院做的CT不互认，重做花了三四百，还白受了辐射。”同时，他对线上问诊的担忧是“怕遇到AI随便答，必须看到医生的真实执业资质”。</p>
-            </div>
-            
-            <div class="insight-box">
-                <p><strong>痛点二：跨院报告零散，子女代管困难。</strong> 陈女士（45岁）表示：“父亲有糖尿病，老家和现在的医院报告不互通，经常要重做检查，老人身体受不了。如果APP能汇总所有报告，带老人看病直接出示电子档案就太好了。”</p>
-            </div>
+        <!-- 三、 数据收集计划与结果 -->
+        <section id="data-collection">
+            <h2>三、 数据收集计划与结果</h2>
+            <p>本阶段共开展了面向潜在用户的深度访谈（共4位代表性用户）以及面向18位用户的问卷调查统计，深入挖掘用户在实体就医、排队、检查报告保管及线上问诊中的痛点与真实需求。</p>
 
-            <div class="insight-box">
-                <p><strong>痛点三：适老化与无障碍需求迫切。</strong> 周女士（52岁）和李同学都提到家中长辈听力衰退的问题。“父亲耳朵背，医生讲话听不清，如果有实时字幕，他就不用一直让医生重复，我们远程也能看懂。”（周女士还特别强调了界面需大字化、操作需简化）。</p>
-            </div>
-        </section>
-
-        <!-- 4. 数据收集结果 (数据收集计划 - 问卷) -->
-        <section id="data">
-            <h2>📊 问卷数据与收集计划</h2>
-            <p><strong>数据收集计划：</strong> 本项目采用定性与定量结合的方式。定性部分通过深度访谈获取痛点与功能需求；定量部分通过发放结构化问卷（共回收有效问卷 18 份，目标群体集中在 18-25 岁在校学生及青年群体），以验证需求的普遍性和商业模式的可行性。</p>
-            
-            <h3>核心数据洞察验证：</h3>
-            
-            <div class="data-item">
-                <div class="data-label"><span>医生真实职业资质认证（影响信任度最关键因素）</span> <span>77.78%</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width: 77.78%;"></div></div>
-            </div>
-
-            <div class="data-item">
-                <div class="data-label"><span>需要实时字幕功能（非常需要+偶尔需要，无障碍刚需）</span> <span>77.78%</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width: 77.78%;"></div></div>
-            </div>
-
-            <div class="data-item">
-                <div class="data-label"><span>收费标准清晰透明（影响使用意愿）</span> <span>72.22%</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width: 72.22%;"></div></div>
-            </div>
-
-            <div class="data-item">
-                <div class="data-label"><span>目前登录不同医院公众号查看报告（现状痛点）</span> <span>66.67%</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width: 66.67%;"></div></div>
-            </div>
-
-            <div class="data-item">
-                <div class="data-label"><span>非常赞同“免费日常+付费专家”的分层模式</span> <span>66.67%</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width: 66.67%;"></div></div>
-            </div>
-
-            <div class="data-item">
-                <div class="data-label"><span>最需要的推送：异常检查报告指标预警</span> <span>66.67%</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width: 66.67%;"></div></div>
-            </div>
-
-            <h3>商业定价区间（专家视频问诊接受度）：</h3>
+            <h3>1. 问卷调查数据统计结果</h3>
+            <p>本次问卷共回收有效问卷 <strong>18份</strong>，核心统计结果如下：</p>
             <table>
                 <tr>
-                    <th>价格区间 (元)</th>
-                    <th>占比</th>
-                    <th>用户倾向</th>
+                    <th>调研维度 / 题项</th>
+                    <th>主要选项及占比统计</th>
                 </tr>
                 <tr>
-                    <td>0 元 (仅接受免费)</td>
-                    <td>5.56%</td>
-                    <td>极少数</td>
+                    <td><strong>年龄与职业分布</strong></td>
+                    <td>18～25岁占 100%；在校学生占 94.44%，自由职业/待业占 5.56%[cite: 3]。</td>
                 </tr>
                 <tr>
-                    <td>1 ～ 20 元</td>
-                    <td>38.89%</td>
-                    <td>高度接受（学生群体为主）</td>
+                    <td><strong>线下就医最耗时环节</strong></td>
+                    <td>现场挂号与候诊排队（38.89%）[cite: 3]；拿检查结果并再次排队找医生（33.33%）[cite: 3]。</td>
                 </tr>
                 <tr>
-                    <td>21 ～ 50 元</td>
-                    <td>27.78%</td>
-                    <td>中等接受（日常复诊可承受）</td>
+                    <td><strong>检查报告保管方式（多选）</strong></td>
+                    <td>登录不同医院公众号/程序查看（66.67%）[cite: 3]；手机相册保存照片（50%）[cite: 3]；纸质报告随便放易丢失（33.33%）[cite: 3]。</td>
                 </tr>
                 <tr>
-                    <td>50 ～ 100 元</td>
-                    <td>27.78%</td>
-                    <td>较高接受（疑难杂症、三甲专家号）</td>
+                    <td><strong>选择线上问诊的主要原因</strong></td>
+                    <td>节省线下就医排队的时间成本（72.22%）[cite: 3]；随时随地咨询日常健康问题（44.44%）[cite: 3]。</td>
+                </tr>
+                <tr>
+                    <td><strong>分层服务模式态度</strong></td>
+                    <td>非常赞同“轻症/日常咨询免费，重症/疑难用付费专家”（66.67%）[cite: 3]。</td>
+                </tr>
+                <tr>
+                    <td><strong>专家视频问诊可接受价格</strong></td>
+                    <td>1～20元（38.89%）[cite: 3]；21～50元（27.78%）[cite: 3]；50～100元（27.78%）[cite: 3]。</td>
+                </tr>
+                <tr>
+                    <td><strong>核心信任与无障碍需求</strong></td>
+                    <td>看重医生真实执业资质认证（77.78%）[cite: 3]；看重健康档案加密保护（66.67%）[cite: 3]；对视频实时字幕有需求或非常需要的比例超过 77%[cite: 3]。</td>
                 </tr>
             </table>
-            <p style="margin-top: 1rem; font-size: 0.85rem; text-align: right;">* 数据来源：Flare 团队《医患交流APP用户需求调研问卷》（N=18）</p>
+
+            <h3>2. 用户访谈转录记录（摘要）</h3>
+            <p>围绕就医习惯、检查报告管理、视频问诊与无障碍辅助三大主题，访谈了4位典型潜在用户：</p>
+
+            <!-- 受访者1 -->
+            <div class="interview-box">
+                <h4>受访者 1：林先生（28岁，互联网公司职员）</h4>
+                <p><strong>核心痛点：</strong>皮肤过敏反复复诊，去三甲医院排队耗费大半天；换手机导致相册里的几十份检查报告经常丢失，跨医院CT不被互认导致重复检查花钱受罪。</p>
+                <div class="dialogue"><strong>采访者：</strong>您对“免费日常医护 + 付费专家”的分层模式怎么看？</div>
+                <div class="dialogue"><strong>林先生：</strong>像普通感冒、小磕小碰这种拿不准的小问题，我会用免费咨询；但如果是复杂病、反复发作的病，我愿意花50-100元找有真实资质和医院背书的专家。</div>
+                <div class="dialogue"><strong>采访者：</strong>您对视频问诊的实时字幕或辅助功能有什么期待？</div>
+                <div class="dialogue"><strong>林先生：</strong>我爸耳朵不好，要是能有实时字幕他就不用老让医生重复；另外希望能有画笔标注病灶、支持问诊录音和文字复盘。</div>
+            </div>
+
+            <!-- 受访者2 -->
+            <div class="interview-box">
+                <h4>受访者 2：陈女士（45岁，企业职员，需兼顾长辈就医）</h4>
+                <p><strong>核心痛点：</strong>带患糖尿病和听力衰退的父亲复诊极其劳累，挂号和候诊排队两小时；纸质报告、相册及各医院小程序的电子报告极度分散。</p>
+                <div class="dialogue"><strong>采访者：</strong>如果APP能汇总跨医院检查报告并提供无障碍功能，您的看法是？</div>
+                <div class="dialogue"><strong>陈女士：</strong>非常需要！能把所有检查汇成一个电子档案直接给医生看最省事。父亲耳朵背，视频看诊时必须要有实时字幕和字体放大，最好还能授权子女远程帮忙管理账号。</div>
+            </div>
+
+            <!-- 受访者3 -->
+            <div class="interview-box">
+                <h4>受访者 3：李同学（22岁，在校大学生）</h4>
+                <p><strong>核心痛点：</strong>学生党预算有限，看肠胃病在医院排队一下午觉得非常不值；跨异地就学时曾因找不到旧检查单被迫重做检查。</p>
+                <div class="dialogue"><strong>采访者：</strong>您对线上问诊的费用和功能有哪些具体需求？</div>
+                <div class="dialogue"><strong>李同学：</strong>日常小问题希望免费、快捷；如果找专家，学生党能接受30-50元左右。希望APP流程简单、图表直观展示指标变化，并提供用药和复诊提醒。</div>
+            </div>
+
+            <!-- 受访者4 -->
+            <div class="interview-box">
+                <h4>受访者 4：周女士（52岁，高血压慢性病患者）</h4>
+                <p><strong>核心痛点：</strong>高血压老病号每月需去医院复诊，排队久导致腿部受不了；跨医院复查心电图和彩超经常重复做。</p>
+                <div class="dialogue"><strong>采访者：</strong>您对慢病视频复诊及隐私安全有什么顾虑？</div>
+                <div class="dialogue"><strong>采访者：</strong>希望血压、血糖数据能自动生成历史趋势图。最关心隐私安全，APP必须承诺本地加密、不出售数据且可随时删除，才会放心上传。</div>
+            </div>
+
         </section>
 
     </div>
 
-    <footer style="text-align: center; padding: 2rem; color: #94a3b8; font-size: 0.9rem; border-top: 1px solid #e2e8f0;">
-        &copy; 2026 Flare Team (杨小英 & 王榕祺). All Rights Reserved.
+    <footer>
+        <p>&copy; 2026 Flare Team. All Rights Reserved. | 人机交互实验项目</p>
     </footer>
 
 </body>
