@@ -1,1 +1,307 @@
-<h1>Hello GitHub Pages</h1>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flare - 高质量医患交流APP</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --bg-color: #f8fafc;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --card-bg: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+        
+        /* 导航栏 */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .nav-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); letter-spacing: 1px; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--primary-color); }
+
+        /* 头部横幅 */
+        header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 8rem 2rem 5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        header h1 { font-size: 3.5rem; margin-bottom: 1rem; letter-spacing: 2px; }
+        header p { font-size: 1.2rem; opacity: 0.9; max-width: 800px; margin: 0 auto; }
+
+        /* 容器与卡片 */
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem 4rem; }
+        section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            scroll-margin-top: 80px;
+        }
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h2::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: #e2e8f0;
+            margin-left: 10px;
+        }
+        h3 { color: var(--secondary-color); margin: 1.5rem 0 1rem; font-size: 1.2rem; }
+        p { margin-bottom: 1rem; color: var(--text-light); }
+        strong { color: var(--text-main); }
+
+        /* 团队卡片 */
+        .team-grid { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .member {
+            flex: 1; min-width: 250px;
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+        }
+        .member h3 { margin: 0 0 0.5rem 0; color: var(--text-main); }
+        .member p { margin: 0; font-size: 0.9rem; }
+
+        /* 列表样式 */
+        ul.custom-list { list-style: none; padding-left: 0; }
+        ul.custom-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-light);
+        }
+        ul.custom-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* 访谈洞察框 */
+        .insight-box {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        .insight-box p { margin: 0; color: #92400e; font-size: 0.95rem; }
+
+        /* 数据进度条 */
+        .data-item { margin-bottom: 1.5rem; }
+        .data-label {
+            display: flex; justify-content: space-between;
+            font-weight: bold; font-size: 0.95rem; margin-bottom: 8px;
+        }
+        .progress-bar {
+            background-color: #e2e8f0; border-radius: 999px;
+            height: 12px; overflow: hidden;
+        }
+        .progress-fill {
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
+            height: 100%; border-radius: 999px;
+        }
+
+        /* 表格样式 */
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.95rem; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background-color: #f8fafc; color: var(--text-main); font-weight: 600; }
+        tr:hover { background-color: #f1f5f9; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            header h1 { font-size: 2.5rem; }
+            section { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">Flare</div>
+            <div class="nav-links">
+                <a href="#team">团队介绍</a>
+                <a href="#proposal">项目方案</a>
+                <a href="#interview">访谈洞察</a>
+                <a href="#data">数据收集</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 头部 -->
+    <header>
+        <h1>Flare 医患交流APP</h1>
+        <p>针对远程医疗与健康咨询场景，通过“免费日常医护 + 付费专家咨询”的分层模式，缓解线下就医压力，打造高质量、无障碍的医患交流体验。</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- 1. 团队介绍 -->
+        <section id="team">
+            <h2>👥 团队介绍</h2>
+            <p>我们是一支关注人机交互与医疗痛点的团队，致力于用产品设计解决真实世界的就医难题。</p>
+            <div class="team-grid">
+                <div class="member">
+                    <h3>杨小英</h3>
+                    <p>学号：202300130279</p>
+                    <p style="margin-top: 0.5rem; color: var(--primary-color);">负责内容：网页制作、问卷数据分析、访谈记录</p>
+                </div>
+                <div class="member">
+                    <h3>王榕祺</h3>
+                    <p>学号：202300130263</p>
+                    <p style="margin-top: 0.5rem; color: var(--primary-color);">负责内容：项目描述撰写、需求调研、数据统计与审核</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 项目方案 (项目提案) -->
+        <section id="proposal">
+            <h2>💡 项目方案</h2>
+            <p><strong>项目背景与痛点：</strong> 线下就医面临着漫长排队、跨院检查报告分散难以管理、以及特殊群体（如听障人士、高龄老人）沟通困难等问题。现有的线上问诊平台往往收费不透明，且缺乏针对复杂病情的视觉诊断支持。</p>
+            
+            <h3>核心解决方案与功能：</h3>
+            <ul class="custom-list">
+                <li><strong>分层服务模式：</strong> 提供“免费（日常医护）+ 付费（专家咨询）”。日常小病通过免费真人医护快速解答；疑难杂症可付费直连三甲医院专家，解决排队挂号难题。</li>
+                <li><strong>跨平台电子健康档案：</strong> 汇集分散在不同医院、公众号和小程序中的检查报告。自动提取指标生成趋势图，同时保留原图供医生查阅，避免重复检查。</li>
+                <li><strong>高质量无障碍视频问诊：</strong> 支持高清视频看诊（针对皮肤病、外伤等），并首创面向听障/高龄人群的“实时字幕（语音转文字）”功能，支持字体放大、画笔标注病灶、以及问诊记录回放。</li>
+                <li><strong>智能健康管家：</strong> 提供用药提醒、复诊预约提醒、异常指标预警，全方位管理慢病与日常健康。</li>
+            </ul>
+        </section>
+
+        <!-- 3. 访谈洞察 (数据收集计划 - 访谈) -->
+        <section id="interview">
+            <h2>🎙️ 用户访谈洞察</h2>
+            <p>我们针对4位典型潜在用户（包括互联网职员、需代管父母健康的中年人、大学生、慢病老年人）进行了深度访谈，挖掘了不同人群的真实痛点：</p>
+            
+            <div class="insight-box">
+                <p><strong>痛点一：时间成本与信任危机并存。</strong> 林先生（28岁）提到：“线下排队检查一上午就没了，之前在别家医院做的CT不互认，重做花了三四百，还白受了辐射。”同时，他对线上问诊的担忧是“怕遇到AI随便答，必须看到医生的真实执业资质”。</p>
+            </div>
+            
+            <div class="insight-box">
+                <p><strong>痛点二：跨院报告零散，子女代管困难。</strong> 陈女士（45岁）表示：“父亲有糖尿病，老家和现在的医院报告不互通，经常要重做检查，老人身体受不了。如果APP能汇总所有报告，带老人看病直接出示电子档案就太好了。”</p>
+            </div>
+
+            <div class="insight-box">
+                <p><strong>痛点三：适老化与无障碍需求迫切。</strong> 周女士（52岁）和李同学都提到家中长辈听力衰退的问题。“父亲耳朵背，医生讲话听不清，如果有实时字幕，他就不用一直让医生重复，我们远程也能看懂。”（周女士还特别强调了界面需大字化、操作需简化）。</p>
+            </div>
+        </section>
+
+        <!-- 4. 数据收集结果 (数据收集计划 - 问卷) -->
+        <section id="data">
+            <h2>📊 问卷数据与收集计划</h2>
+            <p><strong>数据收集计划：</strong> 本项目采用定性与定量结合的方式。定性部分通过深度访谈获取痛点与功能需求；定量部分通过发放结构化问卷（共回收有效问卷 18 份，目标群体集中在 18-25 岁在校学生及青年群体），以验证需求的普遍性和商业模式的可行性。</p>
+            
+            <h3>核心数据洞察验证：</h3>
+            
+            <div class="data-item">
+                <div class="data-label"><span>医生真实职业资质认证（影响信任度最关键因素）</span> <span>77.78%</span></div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 77.78%;"></div></div>
+            </div>
+
+            <div class="data-item">
+                <div class="data-label"><span>需要实时字幕功能（非常需要+偶尔需要，无障碍刚需）</span> <span>77.78%</span></div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 77.78%;"></div></div>
+            </div>
+
+            <div class="data-item">
+                <div class="data-label"><span>收费标准清晰透明（影响使用意愿）</span> <span>72.22%</span></div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 72.22%;"></div></div>
+            </div>
+
+            <div class="data-item">
+                <div class="data-label"><span>目前登录不同医院公众号查看报告（现状痛点）</span> <span>66.67%</span></div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 66.67%;"></div></div>
+            </div>
+
+            <div class="data-item">
+                <div class="data-label"><span>非常赞同“免费日常+付费专家”的分层模式</span> <span>66.67%</span></div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 66.67%;"></div></div>
+            </div>
+
+            <div class="data-item">
+                <div class="data-label"><span>最需要的推送：异常检查报告指标预警</span> <span>66.67%</span></div>
+                <div class="progress-bar"><div class="progress-fill" style="width: 66.67%;"></div></div>
+            </div>
+
+            <h3>商业定价区间（专家视频问诊接受度）：</h3>
+            <table>
+                <tr>
+                    <th>价格区间 (元)</th>
+                    <th>占比</th>
+                    <th>用户倾向</th>
+                </tr>
+                <tr>
+                    <td>0 元 (仅接受免费)</td>
+                    <td>5.56%</td>
+                    <td>极少数</td>
+                </tr>
+                <tr>
+                    <td>1 ～ 20 元</td>
+                    <td>38.89%</td>
+                    <td>高度接受（学生群体为主）</td>
+                </tr>
+                <tr>
+                    <td>21 ～ 50 元</td>
+                    <td>27.78%</td>
+                    <td>中等接受（日常复诊可承受）</td>
+                </tr>
+                <tr>
+                    <td>50 ～ 100 元</td>
+                    <td>27.78%</td>
+                    <td>较高接受（疑难杂症、三甲专家号）</td>
+                </tr>
+            </table>
+            <p style="margin-top: 1rem; font-size: 0.85rem; text-align: right;">* 数据来源：Flare 团队《医患交流APP用户需求调研问卷》（N=18）</p>
+        </section>
+
+    </div>
+
+    <footer style="text-align: center; padding: 2rem; color: #94a3b8; font-size: 0.9rem; border-top: 1px solid #e2e8f0;">
+        &copy; 2026 Flare Team (杨小英 & 王榕祺). All Rights Reserved.
+    </footer>
+
+</body>
+</html>
